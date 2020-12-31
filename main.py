@@ -10,7 +10,7 @@ from adremover import AdRemover
 rule_files = ["1.txt", "ruadlist+easylist.txt"]
 remover = AdRemover(*rule_files)
 
-html = open("page.html", "r", encoding='utf-8').read()
+html = open("page.html", "rb").read()
 document = lxml.html.document_fromstring(html)
 remover.remove_ads(document)
 clean_html = tostring(document).decode("utf-8")
