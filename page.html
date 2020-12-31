@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        (window.NREUM||(NREUM={})).loader_config={licenseKey:"5690e7e2ae",applicationID:"20846741"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);
+    </script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="WordPress 4.5.2">
+    <meta name="description"
+          content="聲明：雖然本人目前就職於Novartis, 但本系列文章的所有信息與數據，均來自於可公開查詢的網際網路，與公司無任何關聯，且僅代表我的個人觀點。對本文的任何轉載或引用，均需得到我本人的許可。朋友們，大家好！">
+    <link rel="canonical" href="https://kknews.cc/health/e5qollr.html">
+    <meta property="og:title" content="糖尿病專題30 總結(下) 時間線和公司線回顧">
+    <meta property="og:description"
+          content="聲明：雖然本人目前就職於Novartis, 但本系列文章的所有信息與數據，均來自於可公開查詢的網際網路，與公司無任何關聯，且僅代表我的個人觀點。對本文的任何轉載或引用，均需得到我本人的許可。朋友們，大家好！">
+    <meta property="og:url" content="https://kknews.cc/health/e5qollr.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_tw">
+    <meta property="article:author" content="https://www.facebook.com/kknews.cc">
+    <meta property="article:publisher" content="https://www.facebook.com/kknews.cc">
+    <link rel="alternate" hreflang="x-default" href="https://kknews.cc/health/e5qollr.html">
+    <link rel="alternate" hreflang="zh-tw" href="https://kknews.cc/zh-tw/health/e5qollr.html">
+    <link rel="alternate" hreflang="zh-cn" href="https://kknews.cc/zh-cn/health/e5qollr.html">
+    <link rel="alternate" hreflang="zh-hk" href="https://kknews.cc/zh-hk/health/e5qollr.html">
+    <link rel="alternate" hreflang="zh-mo" href="https://kknews.cc/zh-mo/health/e5qollr.html">
+    <link rel="alternate" hreflang="zh-my" href="https://kknews.cc/zh-my/health/e5qollr.html">
+    <link rel="alternate" hreflang="zh-sg" href="https://kknews.cc/zh-sg/health/e5qollr.html">
+    <meta property="og:image" content="https://i1.kknews.cc/SIG=1boeios/ctp-vzntr/EnaS83USRPieZy.jpg">
+    <meta property="og:image:width" content="940">
+    <meta property="og:image:height" content="200">
+    <meta property="og:image" content="https://i2.kknews.cc/SIG=38v5he2/ctp-vzntr/FW3VKnURn4VJ7r.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="959">
+    <meta property="og:image" content="https://i1.kknews.cc/SIG=1ejei5t/ctp-vzntr/FW3VLYb6DESSWg.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="501">
+    <meta property="og:image" content="https://i1.kknews.cc/SIG=o2mc1g/ctp-vzntr/FW3VLZtVbtDmcI.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="525">
+    <meta property="og:image" content="https://i1.kknews.cc/SIG=1ph6mro/ctp-vzntr/FW3VLA91yeA7uS.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="626">
+    <meta property="og:image" content="https://i1.kknews.cc/SIG=2hg7oob/ctp-vzntr/FW3VLBPW5Y0PSo.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="543">
+    <meta property="og:image" content="https://i2.kknews.cc/SIG=13hlf71/ctp-vzntr/FW3VLBm1ZgRVcN.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="549">
+    <meta property="og:image" content="https://i1.kknews.cc/SIG=ucn8ht/ctp-vzntr/FW3Voj233PDTZm.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="381">
+    <meta property="og:image" content="https://i1.kknews.cc/SIG=1jijp7i/ctp-vzntr/FW3VojkOv3oggc.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="438">
+    <meta property="og:image" content="https://i2.kknews.cc/SIG=el34sb/ctp-vzntr/FW3Vol89TsNePH.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="462">
+    <meta property="og:image" content="https://i2.kknews.cc/SIG=1ug3t08/ctp-vzntr/FW3VollU24oj1x.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="325">
+    <meta property="og:image" content="https://i1.kknews.cc/SIG=3e6h328/ctp-vzntr/FW3Vomn3o28zl4.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="440">
+    <meta property="og:image" content="https://i2.kknews.cc/SIG=2hupst9/ctp-vzntr/EsCxBWW8RdTmSJ.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="558">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="amphtml" href="https://kknews.cc/health/e5qollr.amp">
+    <meta property="fb:app_id" content="776605462513893">
+    <meta property="fb:pages" content="398154547233306">
+    <title>糖尿病專題30 總結(下) 時間線和公司線回顧 - 每日頭條</title>
+    <link href="//a.kknews.cc/style-a4186276.css" rel="stylesheet" media="all">
+    <link rel="dns-prefetch" href="https://a.kknews.cc">
+    <link rel="dns-prefetch" href="https://i1.kknews.cc">
+    <link rel="dns-prefetch" href="https://i2.kknews.cc">
+    <link rel="search" type="application/opensearchdescription+xml" title="每日頭條" href="/opensearch.xml">
+    <meta name="robots" content="noarchive">
+    <meta name="google" content="notranslate">
+    <!--[if lt IE 9]>
+    <script src="//a.kknews.cc/css3-mediaqueries-2c91dac3.js"></script>
+    <![endif]--><!-- No ads for PageLevel --></head>
+<body class=" mh-right-sb">
+<script>(PAGEVARS=window.PAGEVARS||[]).push(["pageId",""])</script>
+<div class="mh-container">
+    <header class="header-wrap">
+        <div class="logo-wrap" role="banner">
+            <div class="bar"></div>
+            <div class="logo"><a href="/" title="KKNews" rel="home"><h1 class="logo-name">每日頭條</h1>
+                <h2 class="logo-desc"></h2></a></div>
+        </div>
+        <div class="mobile-nav"></div>
+        <nav class="main-nav clearfix">
+            <div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="/">首頁</a></li>
+                    <li class="menu-item"><a href="/health/">健康</a></li>
+                    <li class="menu-item"><a href="/entertainment/">娛樂</a></li>
+                    <li class="menu-item"><a href="/fashion/">時尚</a></li>
+                    <li class="menu-item"><a href="/game/">遊戲</a></li>
+                    <li class="menu-item"><a href="/digital/">3C</a></li>
+                    <li class="menu-item"><a href="/baby/">親子</a></li>
+                    <li class="menu-item"><a href="/culture/">文化</a></li>
+                    <li class="menu-item"><a href="/history/">歷史</a></li>
+                    <li class="menu-item"><a href="/comic/">動漫</a></li>
+                    <li class="menu-item"><a href="/astrology/">星座</a></li>
+                    <li class="menu-item"><a href="/fit/">健身</a></li>
+                    <li class="menu-item"><a href="/home/">家居</a></li>
+                    <li class="menu-item"><a href="/emotion/">情感</a></li>
+                    <li class="menu-item"><a href="/tech/">科技</a></li>
+                    <li class="menu-item"><a href="/pet/">寵物</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="mh-wrapper clearfix">
+        <div id="main-content" class="mh-content">
+            <article id="content" class="post type-post status-publish format-standard hentry widget">
+                <header class="post-header"><h1 class="entry-title p-name">糖尿病專題30 總結(下) 時間線和公司線回顧</h1>
+                    <p class="meta post-meta"><a href="/archive/20201231/" class="updated">2020-12-31</a>&nbsp;<em>由&nbsp;拓哥看世界&nbsp;發表于<a
+                            href="/health/" rel="category tag">健康</a></em></p></header>
+                <div class="entry clearfix"><!-- google_ad_section_start --><!-- No ads for LRCT_Top -->
+                    <div class="basic">
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:21.25%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i1.kknews.cc/SIG=1boeios/ctp-vzntr/EnaS83USRPieZy.jpg" width="640"
+                                height="136"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p><strong>聲明：雖然本人目前就職於Novartis,
+                            但本系列文章的所有信息與數據，均來自於可公開查詢的網際網路，與公司無任何關聯，且僅代表我的個人觀點。對本文的任何轉載或引用，均需得到我本人的許可。</strong></p>
+                        <div class="axslot lrct_inject axsense">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({params:{"google_ad_client":["ca","pub","2923"+"1528"+"6638"+"5027"].join("-"),"google_ad_slot":"7278175363","google_ad_layout":"in-article","google_ad_format":"fluid","google_ad_channel":"7076095746"}});
+                            </script>
+                        </div>
+                        <p>朋友們，大家好！</p>
+                        <p>這是拓哥的<span class="entity-word" data-gid=
+                                "1127921">糖尿病</span>專題系列，介紹<strong>糖尿病的概況</strong>、<strong>胰島素的發現</strong>、<strong>生產技術沿革</strong>和<strong>胰島素加強版與類似物</strong>，和<strong>治療T2D的7大原理</strong>，<strong>10大類藥物</strong>。
+                        </p>
+                        <p>
+                            <strong>第1</strong>期到<strong>第28期</strong>，咱們做了個糖尿病專題系列，介紹<strong>糖尿病的概況</strong>、<strong>胰島素的發現</strong>、<strong>生產技術沿革</strong>和<strong>胰島素加強版與類似物</strong>，和<strong>治療T2D的7大原理</strong>，<strong>10大類藥物</strong>。
+                        </p>
+                        <p>具體來說，咱們介紹了<strong>糖尿病</strong>的基本致病原理和流行分布狀況，<strong>Insulin/</strong><strong>胰島素</strong>的發現和生產技術沿革，<strong>Insulin/</strong><strong>胰島素</strong><strong>加強版</strong>和<strong>Insulin
+                            Analog/</strong><strong>胰島素類似物</strong>，治療<strong>糖尿病</strong>的傳奇藥物<strong>Metformin/<span
+                                class="entity-word" data-gid="9075316">二甲雙胍</span></strong>，<strong>Alpha-glucosidase
+                            inhibitors/甲型糖苷酶抑制劑</strong>，<strong>Amylin
+                            analogues/胰淀素類似物</strong>，<strong>Amylin</strong>創始人<strong>明星企業家Howard
+                            Greene</strong>和<strong>Pramlintide/普蘭林肽</strong>曲折的研發故事，<strong>Amylin
+                            Pharmaceuticals</strong>後續發展和董事會席位爭奪大戰，Sulfonylureas/硫醯基尿素類<strong>藥物</strong>，Glinides/<span
+                                class="entity-word" data-gid="11208475">格列奈類</span><strong>藥物</strong>，<strong>Incretin:
+                            Glucagon-Like
+                            Peptide 1(GLP-1)、Gastric Inhibitory Polypeptide(GIP)/腸泌素:升糖素類多肽1、抑胃肽</strong>，<strong>Glucagon-Like
+                            Peptide analogs and
+                            agonist/升糖素類多肽類似物和激動劑</strong>，<strong>DPP-4抑制劑</strong>，Thiazolidinediones(TZD)/噻唑烷二酮類<strong>藥物</strong>，和SGLT2
+                            inhibitors/SGLT2<strong>抑制劑</strong>。</p>
+                        <div class="axslot lrct_inject axsense">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({params:{"google_ad_client":["ca","pub","2923"+"1528"+"6638"+"5027"].join("-"),"google_ad_slot":"7278175363","google_ad_layout":"in-article","google_ad_format":"fluid","google_ad_channel":"7076095746"}});
+                            </script>
+                        </div>
+                        <p>上期咱們回顧了十大類糖尿病藥物和各個大類的發展歷程，本期繼續從時間線和各家公司兩個角度來回顧糖尿病領域的藥物研發發展歷程。</p>
+                        <p><strong>四、糖尿病領域時間發展線</strong></p>
+                        <p>這一節咱們回顧一下糖尿病領域發展的重點時間節點。</p>
+                        <p>最早在<strong>公元前1500年</strong>左右，埃及人就有關於<strong>糖尿病</strong>的記載。</p>
+                        <p><strong>1889年</strong>，首次發現<strong>糖尿病</strong>與胰腺相關。</p>
+                        <p><strong>1901年</strong>，首次證實胰島能提供調節血糖的物質。</p>
+                        <p><strong>1921年</strong>，首次成功提取<strong>Insulin/胰島素</strong>。</p>
+                        <p><strong>1922年</strong>，<strong>Insulin/胰島素</strong>臨床實驗成功，成為起死回生的神藥</p>
+                        <p><strong>1923年</strong>，<strong>Insulin/胰島素</strong>大規模量產並被廣泛使用。</p>
+                        <p>
+                            <strong>20</strong>世紀20年代，這是人類首次正確認知<strong>糖尿病</strong>病因並找到有效治療手段的<strong>糖尿病藥物研發</strong><strong
+                                class="highlight-text" toutiao-origin="span">第一階段</strong>。</p>
+                        <p><strong>1936年</strong>，首次推出<strong>Basal Insulin/基礎胰島素</strong> <strong>Protamine Zinc
+                            Insulin(PZI)/魚精蛋白鋅胰島素</strong>。</p>
+                        <p><strong>1946年</strong>，推出更高級的<strong>Basal Insulin/基礎胰島素</strong> <strong>Neutral Protamine
+                            Hagedorn(NPH)insulin/中性魚精蛋白鋅胰島素</strong>。</p>
+                        <div class="axslot lrct_inject axsense">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({params:{"google_ad_client":["ca","pub","2923"+"1528"+"6638"+"5027"].join("-"),"google_ad_slot":"7278175363","google_ad_layout":"in-article","google_ad_format":"fluid","google_ad_channel":"7076095746"}});
+                            </script>
+                        </div>
+                        <p>
+                            <strong>20</strong>世紀30-40年代，這是人類改進<strong>Insulin/胰島素</strong>的<strong>糖尿病藥物研發</strong><strong
+                                class="highlight-text" toutiao-origin="span">第二階段</strong>。</p>
+                        <p><strong>1957年</strong>，臨床實驗證實<strong>Biguanides/雙胍類藥物</strong>
+                            <strong>Metformin/二甲雙胍</strong>可治療糖尿病。</p>
+                        <p>
+                            <strong>1957年</strong>，<strong>SU/硫醯基尿素類藥物</strong>第一代，<strong>Tolbutamide/甲苯磺丁脲</strong>獲<strong>FDA</strong>批准上市。
+                        </p>
+                        <p><strong>20</strong>世紀50年代，這是兩款口服治療糖尿病藥物橫空出世的<strong>糖尿病藥物研發</strong><strong
+                                class="highlight-text" toutiao-origin="span">第三階段</strong>。</p>
+                        <p><strong>1970年代</strong>，<strong>Alpha-glucosidase inhibitors/甲型糖苷酶抑制劑</strong><strong>Acarbose/<span
+                                class="entity-word" data-gid=
+                                "243749">阿卡波糖</span></strong>和<strong>Miglitol/米格列醇</strong>分別被從細菌中提取出來，第四款糖尿病藥物進入研發。
+                        </p>
+                        <p><strong>1977-78年</strong>，<strong>Biguanides/雙胍類藥物</strong>由於<strong>Lactic
+                            Acidosis/乳酸中毒</strong>的副作用在全球退市，口服糖尿病藥物第一次重大挫折。</p>
+                        <p><strong>20</strong>世紀70年代，有新藥誕生，也有老藥退出，糾結期的<strong>糖尿病藥物研發</strong><strong
+                                class="highlight-text" toutiao-origin="span">第四階段</strong>。</p>
+                        <p><strong>1982年</strong>，<strong>Eli Lilly</strong>正式用<strong>重組DNA</strong>技術量產商業化的<strong>Insulin/胰島素</strong>。
+                        </p>
+                        <div class="axslot lrct_inject axsense">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({params:{"google_ad_client":["ca","pub","2923"+"1528"+"6638"+"5027"].join("-"),"google_ad_slot":"7278175363","google_ad_layout":"in-article","google_ad_format":"fluid","google_ad_channel":"7076095746"}});
+                            </script>
+                        </div>
+                        <p><strong>1982年</strong>，首個TZD/噻唑烷二酮類藥物<strong>ADD-3878/Ciglitazone/環格列酮</strong>開始研發。</p>
+                        <p><strong>1983年</strong>，<strong>Glinides/格列奈類藥物</strong> <strong>Repaglinide/瑞格列奈</strong>的先導化合物被發明，進入研發。
+                        </p>
+                        <p><strong>1983年</strong>，修改<strong>Insulin/胰島素</strong>最終得到Long-acting/長效<strong>Insulin
+                            Analog/</strong><strong>胰島素類似物</strong> <strong>Insulin Glargine/<span class="entity-word"
+                                                                                                   data-gid=
+                                                                                                           "2947192">甘精胰島素</span>/</strong><strong>Lantus/來得時</strong>的工作開始了。(速效的沒查到資料，但按時間推測，應該也是<strong>80年代</strong>開始搞的)
+                        </p>
+                        <p>
+                            <strong>1984年</strong>，<strong>SU/硫醯基尿素類藥物</strong>第二代，<strong>Glipizide/格列吡嗪</strong>獲<strong>FDA</strong>批准上市。
+                        </p>
+                        <p><strong>1987年</strong>，<strong>Amylin/胰淀素</strong>被發現，<strong>Amylin analogue/胰淀素類似物</strong>Pramlintide/普蘭林肽/<strong>Symlin</strong>開始研發。
+                        </p>
+                        <p>
+                            <strong>20</strong>世紀80年代，<strong>Insulin/胰島素</strong>生產方式革命性升級，<strong>SU</strong>類藥物升級換代，<strong>TZD</strong>、<strong>Glinides</strong>、<strong>胰島素類似物</strong>和<strong>Amylin
+                            analogue</strong>4類全新機理糖尿病藥物進入研發，堪稱白銀時代的<strong>糖尿病藥物研發</strong><strong
+                                class="highlight-text" toutiao-origin="span">第五階段</strong>。註：白銀是因為這其中三款後來看都一言難盡。</p>
+                        <div class="axslot lrct_inject axsense">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({params:{"google_ad_client":["ca","pub","2923"+"1528"+"6638"+"5027"].join("-"),"google_ad_slot":"7278175363","google_ad_layout":"in-article","google_ad_format":"fluid","google_ad_channel":"7076095746"}});
+                            </script>
+                        </div>
+                        <p><strong>1995年</strong>，<strong>Biguanides/雙胍類藥物</strong>
+                            Metformin/二甲雙胍/<strong>Glucophage</strong>捲土重來，獲<strong>FDA</strong>批准上市。</p>
+                        <p><strong>1995年</strong>，<strong>Alpha-glucosidase inhibitors(AGI)/甲型糖苷酶抑制劑</strong>
+                            Acarbose/阿卡波糖/<strong>Glucobay</strong>獲<strong>FDA</strong>批准上市。</p>
+                        <p>
+                            <strong>1995年</strong>，<strong>SU/硫醯基尿素類藥物</strong>第三代<strong>Glimepiride/格列美脲/Amaryl</strong>獲<strong>FDA</strong>批准上市。
+                        </p>
+                        <p><strong>1995年</strong>，首款<strong>DPP-4抑制劑</strong><strong>DPP728</strong>開始研發。</p>
+                        <p><strong>1996年</strong>，首個<strong>Fast-acting/速效</strong><strong>Insulin
+                            Analog/</strong><strong>胰島素類似物</strong><strong>Eli Lilly</strong>的<strong>Insulin
+                            Lispro/賴脯胰島素/</strong><strong>Humalog/優泌樂</strong>獲批。</p>
+                        <p><strong>1996年</strong>，首個<strong>GLP-1激動劑</strong>
+                            <strong>Exenatide/艾塞那肽</strong>被授權給<strong>Amylin</strong>，正式進入研發。</p>
+                        <p><strong>1997年</strong>，首個<strong>TZD/噻唑烷二酮類藥物</strong>
+                            <strong>Troglitazone/曲格列酮/Rezulin/瑞澤林</strong>獲<strong>FDA</strong>批准上市。</p>
+                        <div class="axslot lrct_inject axsense">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({params:{"google_ad_client":["ca","pub","2923"+"1528"+"6638"+"5027"].join("-"),"google_ad_slot":"7278175363","google_ad_layout":"in-article","google_ad_format":"fluid","google_ad_channel":"7076095746"}});
+                            </script>
+                        </div>
+                        <p><strong>1997年</strong>，首個<strong>Glinides/格列奈類藥物</strong>
+                            Repaglinide/瑞格列奈/<strong>Prandin</strong>/<span class="entity-word"
+                                                                            data-gid="7338025">諾和龍</span>獲<strong>FDA</strong>批准上市。
+                        </p>
+                        <p><strong>1999年</strong>，首個SGLT2抑制劑<strong>T-1095</strong>開始研發。</p>
+                        <p>
+                            <strong>20世紀90年代</strong>，<strong>Biguanides</strong>，<strong>SU</strong>三代，<strong>70年代</strong>開搞的<strong>AGI</strong>，<strong>80年代</strong>開搞的<strong>速效</strong><strong>胰島素類似物</strong>，<strong>TZD</strong>和<strong>Glinides/格列奈類藥物</strong>6款新型糖尿病藥物獲批，<strong>DPP-4</strong>，<strong>GLP-1激動劑</strong>和<strong>SGLT2抑制劑</strong>3類全新機理糖尿病藥物進入研發，堪稱黃金時代的<strong>糖尿病藥物研發</strong><strong
+                                class="highlight-text"
+                                toutiao-origin="span">第六階段</strong>。註：黃金是因為這三款得其一者得天下！</p>
+                        <p><strong>2000年</strong>，首個Long-acting/長效<strong>Insulin
+                            Analog/</strong><strong>胰島素類似物</strong><strong>Sanofi</strong>的<strong>Insulin
+                            Glargine/甘精胰島素/</strong><strong>Lantus/來得時</strong>獲批。</p>
+                        <p>
+                            <strong>2000年</strong>，首個<strong>TZD/噻唑烷二酮類藥物</strong><strong>Troglitazone/曲格列酮/Rezulin/瑞澤林</strong>退市。
+                        </p>
+                        <p><strong>2005年</strong>，首個<strong>Amylin analogues/胰淀素類似物</strong> Pramlintide/普蘭林肽/<strong>Symlin</strong>獲<strong>FDA</strong>批准上市。
+                        </p>
+                        <div class="axslot lrct_inject axsense">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({params:{"google_ad_client":["ca","pub","2923"+"1528"+"6638"+"5027"].join("-"),"google_ad_slot":"7278175363","google_ad_layout":"in-article","google_ad_format":"fluid","google_ad_channel":"7076095746"}});
+                            </script>
+                        </div>
+                        <p><strong>2005年</strong>，首個<strong>GLP-1激動劑</strong> <strong>Exenatide/艾塞那肽</strong>/<strong>Byetta</strong>獲<strong>FDA</strong>批准上市。
+                        </p>
+                        <p>
+                            <strong>2006年</strong>，首個DPP-4抑制劑<strong>Sitagliptin/西格列汀/Januvia/佳糖維</strong>獲<strong>FDA</strong>批准上市。
+                        </p>
+                        <p><strong>21世紀第一個十年</strong>，<strong>80年代</strong>開搞的<strong>長效</strong><strong>胰島素類似物</strong>和<strong>Amylin
+                            analogue</strong>，<strong>90年代</strong>開搞的<strong>GLP-1激動劑</strong>和<strong>DPP-4抑制劑</strong>，共4款新型糖尿病藥物獲批，這是收穫滿滿的<strong>糖尿病藥物研發</strong><strong
+                                class="highlight-text" toutiao-origin=
+                                "span">第七階段</strong>。</p>
+                        <p><strong>2013年3月</strong>，首個<strong>SGLT2抑制劑</strong> Canagliflozin/<strong>卡格列凈/</strong>Invokana/怡可安獲<strong>FDA</strong>批准上市。
+                        </p>
+                        <p><strong>2016年12月</strong>，<strong>Empagliflozin/恩</strong><strong>格列凈/Jardiance/<span
+                                class="entity-word"
+                                data-gid="2673476">歐唐靜</span></strong>獲批成為首個能降低心血管風險的<strong>T2D</strong>藥物。</p>
+                        <p><strong>2019年</strong>，1天一片的口服<strong>Semaglutide/索馬魯肽/Ozempic</strong>獲<strong>FDA</strong>批准上市。
+                        </p>
+                        <p><strong>21世紀10年代</strong>，<strong>90年代末</strong>開搞的<strong>SGLT2抑制劑</strong>獲批，且出圈進軍心血管領域，此外，口服<strong>GLP-1激動劑</strong>應該也是劃時代的改變，這是塵埃落定的<strong>糖尿病藥物研發</strong><strong
+                                class="highlight-text"
+                                toutiao-origin="span">第八階段</strong>。</p>
+                        <p>總結起來，基本上是十年一收穫的節奏，與咱們的常識一致~</p>
+                        <p><strong>五、各家公司在糖尿病領域的沉浮史</strong></p>
+                        <p>從公司的角度，如今的<strong>T2D/糖尿病</strong>創新藥市場，格局如何呢？請看下圖，這是<strong>2019年</strong>的主要玩家。</p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:88.75%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i2.kknews.cc/SIG=38v5he2/ctp-vzntr/FW3VKnURn4VJ7r.jpg" width="640"
+                                height="568"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p>按照銷售額超過1個B$的標準，<strong>Novo Nordisk</strong>，<strong>Eli Lilly</strong>，<strong>MSD</strong>，<strong>Sanofi</strong>，<strong>Boehringer
+                            Ingelheim(BI)</strong>，<strong>AstraZeneca(AZ)</strong>和<strong>Novartis(！)</strong>，是場內的6大玩家。
+                        </p>
+                        <p>它們這些年是如何發展變化的呢？見下圖(請點擊看大圖哈，下同~)：</p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:46.40625%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i1.kknews.cc/SIG=1ejei5t/ctp-vzntr/FW3VLYb6DESSWg.jpg" width="640"
+                                height="297"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p><strong>Novo Nordisk</strong>是常青樹，穩居榜首。<strong>Eli Lilly</strong>一度落後，被後起之秀超越，但抓住<strong>GLP-1抑制劑</strong>的機會一舉翻身。<strong>MSD</strong>一招鮮，吃遍天，位居第三。<strong>Sanofi</strong>依靠<strong>Insulin
+                            Glargine/甘精胰島素/</strong><strong>Lantus/來得時</strong>逆襲，也隨之衰落。<strong>BI</strong>是新貴，<strong>DPP-4抑制劑</strong>和<strong>SGLT2抑制劑</strong>兩局都出了爆款，後生可畏。<strong>AZ</strong>雖然產品陣容強大，但主要靠<strong>SGLT2抑制劑</strong>撐門面。<strong>Novartis</strong>居然也是有糖尿病領域重磅藥物的，雖然跟<strong>MSD</strong>一樣就一招。
+                        </p>
+                        <p>剩下幾家如下(<strong>BMS</strong>比較特殊，它參與了<strong>AZ</strong>很多藥的研發，但鑒於在全部賣給<strong>AZ</strong>前，這些藥的銷售額實在太少，故這些藥的銷售額全部劃給了<strong>AZ</strong>了，沒別的意思，只是方便分析哈)：
+                        </p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:48.59375%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i1.kknews.cc/SIG=o2mc1g/ctp-vzntr/FW3VLZtVbtDmcI.jpg" width="640"
+                                height="311"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p>這六家，走勢這麼頹，<strong>TZD</strong>要負大責！因為其中的三家，<strong>Pfizer</strong>，<strong><span
+                                class="entity-word" data-gid=
+                                "20045378">GSK</span></strong>和<strong>Takeda</strong>的走勢，基本就是按它們<strong>TZD</strong>藥物的命運走的。<strong>GSK</strong>想通過<strong>GLP-1抑制劑</strong>，<strong>Takeda</strong>想通過<strong>DPP-4抑制劑</strong>，續命再創輝煌，可惜都失敗了。
+                        </p>
+                        <p>
+                            剩下三家，<strong>BMS</strong>自從Metformin/二甲雙胍/<strong>Glucophage</strong>後就沒拿出像樣的產品，後來直接棄賽賣給<strong>AZ</strong>了。<strong>Bayer</strong>就是<strong>Acarbose/阿卡波糖/</strong><strong>Glucobay/拜糖苹</strong>，走得很平穩。<strong>J&amp;J</strong>是從<strong>1995年</strong>開始就一直想入局而不得，好不容易搞了個<strong>SGLT2抑制劑</strong>，又被<strong>FDA</strong>瘋狂警告，點太背。
+                        </p>
+                        <p>那麼，每家公司的各個品種具體表現如何呢？</p>
+                        <p><strong>5.1</strong> <strong>Novo Nordisk</strong></p>
+                        <p><strong>Novo Nordisk</strong>產品線布局如下：</p>
+                        <ul>
+                            <li>
+                                <p><strong>胰島素：</strong>Insulin/胰島素相關產品(各種組合，牌子太多)</p>
+                            </li>
+                            <li>
+                                <p><strong>速效</strong><strong>胰島素類似物：</strong>Insulin
+                                    Aspart/門冬胰島素/<strong>NovoLog/諾和銳</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>格列奈類藥物：</strong>Repaglinide/瑞格列奈/<strong>NovoNorm/諾和龍</strong></p>
+                            </li>
+                            <li>
+                                <p>長效<strong>胰島素類似物：</strong>Insulin Detemir/地特胰島素/<strong>Levemir/諾和平</strong></p>
+                            </li>
+                            <li>
+                                <p>長效<strong>胰島素類似物：</strong>Insulin Degludec/德谷胰島素/<strong>Tresiba/諾和達</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>GLP-1激動劑：</strong>Liraglutide/利拉魯肽/Victoza</p>
+                            </li>
+                            <li>
+                                <p><strong>GLP-1激動劑：</strong>Semaglutide/索馬魯肽/Ozempic</p>
+                                <br/></li>
+                        </ul>
+                        <p>銷售額如下：</p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:57.96875%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i1.kknews.cc/SIG=1ph6mro/ctp-vzntr/FW3VLA91yeA7uS.jpg" width="640"
+                                height="371"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p><strong>Novo Nordisk</strong>是糖尿病領域老牌玩家，<strong>胰島素</strong>起家，抓住了第一波<strong>胰島素類似物</strong>和第二波的<strong>GLP-1激動劑</strong>，之後分別對<strong>胰島素類似物</strong>和<strong>GLP-1激動劑</strong>升級一次。
+                        </p>
+                        <p><strong>Novo
+                            Nordisk</strong>厲害的點在於成功率超高，出了6款藥，5款都表現出色，只有<strong>格列奈類藥物：</strong>Repaglinide/瑞格列奈/<strong>NovoNorm/諾和龍</strong>稍微差點。作為市場龍頭，原來也不用趕上每一波創新的潮流(<strong>DPP-4抑制劑</strong>和<strong>SGLT2抑制劑</strong>都錯過了，但沒關係)——心態平和起來了~
+                        </p>
+                        <p><strong>5.2</strong> <strong>Eli Lilly</strong></p>
+                        <p><strong>Eli Lilly</strong>產品線布局如下：</p>
+                        <ul>
+                            <li>
+                                <p><strong>胰島素：</strong>Recombinant Insulin/重組人胰島素/<strong>Humulin/優泌林</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>速效</strong><strong>胰島素類似物：</strong>Insulin
+                                    Lispro/賴脯胰島素/<strong>Humalog/優泌樂</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>GLP-1激動劑：</strong>Dulaglutide/度拉魯肽/Trulicity</p>
+                            </li>
+                            <li>
+                                <p><strong>DPP-4抑制劑：</strong>Linagliptin/利格列汀/Trajenta/糖漸平</p>
+                            </li>
+                            <li>
+                                <p><strong>SGLT2抑制劑：</strong>Empagliflozin/恩<strong>格列凈/Jardiance/歐唐靜</strong></p>
+                            </li>
+                        </ul>
+                        <p>銷售額如下：</p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:50.3125%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i1.kknews.cc/SIG=2hg7oob/ctp-vzntr/FW3VLBPW5Y0PSo.jpg" width="640"
+                                height="322"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p><strong>Eli Lilly</strong>也是糖尿病領域老牌玩家，<strong>胰島素</strong>起家，抓住第一波<strong>速效</strong><strong>胰島素類似物</strong>增長了一波，在第一波紅利漸盡，增長乏力時，又抓住第二波<strong>GLP-1激動劑</strong>逆襲成功。此外，<strong>Eli
+                            Lilly</strong>還通過和<strong>BI</strong>合作，也了第二波<strong>DPP-4抑制劑</strong>和第三波<strong>SGLT2抑制劑</strong>的紅利。事實上，<strong>Eli
+                            Lilly</strong>合作非常活躍，還和<strong>Takeda</strong>合作銷售過Pioglitazone/吡格列酮/<strong>Actos/</strong>艾妥糖，和<strong>Amylin</strong>合作銷售過<strong>Exenatide/艾塞那肽/BYETTA</strong>。一句話總結，這些年賺錢的品種，<strong>Eli
+                            Lilly</strong>一個都沒錯過！但中流砥柱，還得靠自己研發的<strong>Dulaglutide/度拉魯肽/Trulicity</strong>！~</p>
+                        <p><strong>5.3</strong> <strong>Sanofi</strong></p>
+                        <p><strong>Sanofi</strong>產品線布局如下：</p>
+                        <ul>
+                            <li>
+                                <p><strong>硫醯基尿素類藥物：</strong><strong>Glimepiride/格列美脲/Amaryl/美而胰膜衣錠</strong></p>
+                            </li>
+                            <li>
+                                <p>長效<strong>胰島素類似物：</strong>Insulin Glargine/甘精胰島素/<strong>Lantus/來得時</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>胰島素：</strong>Recombinant Insulin/重組人胰島素/<strong>Insuman</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>速效</strong><strong>胰島素類似物：</strong>Insulin
+                                    Glulisine/谷賴胰島素/<strong>Apidra/愛胰達</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>GLP-1激動劑：</strong>Lixisenatide/利西那肽/Adlyxin</p>
+                            </li>
+                        </ul>
+                        <p>銷售額如下：</p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:50.78125%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i2.kknews.cc/SIG=13hlf71/ctp-vzntr/FW3VLBm1ZgRVcN.jpg" width="640"
+                                height="325"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p>
+                            <strong>Sanofi</strong>也是糖尿病領域老牌玩家，最早應該賣過<strong>胰島素</strong>，但後來放棄了。近代靠<strong>硫醯基尿素類藥物：</strong><strong>Glimepiride/格列美脲/Amaryl/美而胰膜衣錠</strong>起家，抓住了第一波長效<strong>胰島素類似物</strong>，一路逆襲，但重拾<strong>胰島素</strong>失敗，做<strong>速效</strong><strong>胰島素類似物</strong>和<strong>GLP-1激動劑</strong>太慢，家裡雖然5個藥，其實基本等於<strong>Insulin
+                            Glargine/甘精胰島素/</strong><strong>Lantus/來得時</strong>孤家寡人。</p>
+                        <p><strong>5.4</strong> <strong>BI</strong></p>
+                        <p><strong>Boehringer Ingelheim</strong>產品線布局如下：</p>
+                        <ul>
+                            <li>
+                                <p><strong>DPP-4抑制劑：</strong>Linagliptin/利格列汀/Trajenta/糖漸平</p>
+                            </li>
+                            <li>
+                                <p><strong>SGLT2抑制劑：</strong>Empagliflozin/恩<strong>格列凈/Jardiance/歐唐靜</strong></p>
+                            </li>
+                        </ul>
+                        <p>銷售額如下：</p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:35.3125%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i1.kknews.cc/SIG=ucn8ht/ctp-vzntr/FW3Voj233PDTZm.jpg" width="640"
+                                height="226"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p><strong>Boehringer Ingelheim</strong>是糖尿病領域最耀眼的新秀，第二波<strong>DPP-4抑制劑</strong>和第三波<strong>SGLT2抑制劑</strong>都有份，而且兩款都是重磅，非常厲害，眼瞅即將超過<strong>Sanofi</strong>坐穩糖尿病領域老四的位置！
+                        </p>
+                        <p><strong>5.5</strong> <strong>AstraZeneca</strong></p>
+                        <p><strong>AstraZeneca</strong>產品線布局如下：</p>
+                        <ul>
+                            <li>
+                                <p><strong>Amylin analogues/胰淀素類似物：</strong><strong>Pramlintide/普蘭林肽/</strong><strong>Symlin</strong>
+                                </p>
+                            </li>
+                            <li>
+                                <p><strong>GLP-1激動劑：</strong>Exenatide/艾塞那肽/BYETTA/BYDUREON</p>
+                            </li>
+                            <li>
+                                <p><strong>DPP-4抑制劑：</strong>Saxagliptin/沙格列汀/Onglyza/安立澤</p>
+                            </li>
+                            <li>
+                                <p><strong>SGLT2抑制劑：</strong><strong>Dapagliflozin/達格列凈/Forxiga/安達唐</strong></p>
+                            </li>
+                        </ul>
+                        <p>銷售額如下：</p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:40.625%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i1.kknews.cc/SIG=1jijp7i/ctp-vzntr/FW3VojkOv3oggc.jpg" width="640"
+                                height="260"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p>
+                            <strong>AstraZeneca</strong>也是糖尿病領域的新人，主要通過和<strong>BMS</strong>合作，最後買斷來獲得產品線。4個產品，趕上了第二波<strong
+                                toutiao-origin="span">GLP-1激動劑</strong>和<strong toutiao-origin=
+                                                                                        "span">DPP-4抑制劑</strong>，但賣得差強人意，第三波<strong
+                                toutiao-origin="span">SGLT2抑制劑</strong>才是主力。隨著<strong>Dapagliflozin/達格列凈/Forxiga/安達唐</strong>的強勁表現，整個<strong>AstraZeneca</strong>的糖尿病領域終於漸有起色。
+                        </p>
+                        <p><strong>5.6</strong> <strong>Takeda</strong></p>
+                        <p><strong>Takeda</strong>產品線布局如下：</p>
+                        <ul>
+                            <li>
+                                <p><strong>TZD/噻唑烷二酮類藥物：</strong>Pioglitazone/吡格列酮/<strong>Actos/</strong>艾妥糖</p>
+                            </li>
+                            <li>
+                                <p><strong>DPP-4抑制劑：</strong>Alogliptin/阿格列汀/Nesina/尼欣那</p>
+                            </li>
+                        </ul>
+                        <p>銷售額如下：</p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:42.8125%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i2.kknews.cc/SIG=el34sb/ctp-vzntr/FW3Vol89TsNePH.jpg" width="640"
+                                height="274"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p>
+                            <strong>Takeda</strong>也是糖尿病領域新玩家，靠Pioglitazone/吡格列酮/<strong>Actos/</strong>艾妥糖逆襲，也隨之衰落，後來想靠<strong>DPP-4抑制劑</strong>來續命，但是審批耽擱了沒續上。
+                        </p>
+                        <p><strong>5.7</strong> <strong>GSK</strong></p>
+                        <p><strong>GSK</strong>產品線布局如下：</p>
+                        <ul>
+                            <li>
+                                <p><strong>TZD/噻唑烷二酮類藥物：</strong>Rosiglitazone/羅格列酮/Avandia/安糖健</p>
+                            </li>
+                            <li>
+                                <p><strong toutiao-origin="span">GLP-1激動劑：</strong>Albiglutide/阿必魯肽/Tanzeum</p>
+                            </li>
+                        </ul>
+                        <p>銷售額如下：</p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:30.15625%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i2.kknews.cc/SIG=1ug3t08/ctp-vzntr/FW3VollU24oj1x.jpg" width="640"
+                                height="193"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p>
+                            <strong>GSK</strong>跟<strong>Takeda</strong>是同病相憐——不，比<strong>Takeda</strong>還慘——<strong>Rosiglitazone/羅格列酮/Avandia/安糖健</strong>半路腰斬不說，<strong>Albiglutide/阿必魯肽/Tanzeum</strong>低價促銷卻依然銷售慘澹，<strong>2017年</strong>在<strong>FDA</strong>給它加上<strong>Anaphylaxis
+                            Reaction/嚴重過敏反應</strong>的標籤之前，<strong>GSK</strong>黯然宣布停止其生產和銷售。</p>
+                        <p><strong>5.8 一招鮮</strong></p>
+                        <p>
+                            下面這些公司都是在糖尿病領域，只有一個銷售額拿得出手的產品(可能有獲批了多個，比如<strong>Novartis</strong>，<strong>MSD</strong>和<strong>Pfizer</strong>，但銷售額目前還沒能進年報)：
+                        </p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:40.78125%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i1.kknews.cc/SIG=3e6h328/ctp-vzntr/FW3Vomn3o28zl4.jpg" width="640"
+                                height="261"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <ul>
+                            <li>
+                                <p>Sitagliptin/西格列汀<strong>/Januvia/佳糖維</strong>，<strong>MSD</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>Vildagliptin/維格列汀/Galvus/高糖優美膜衣錠</strong>，<strong>Novartis</strong></p>
+                            </li>
+                            <li>
+                                <p>Canagliflozin/<strong>卡格列凈/</strong>Invokana/怡可安，<strong>J&amp;J</strong></p>
+                            </li>
+                            <li>
+                                <p>Metformin/二甲雙胍<strong>/</strong>Glucophage，<strong>BMS</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>TZD/噻唑烷二酮類藥物：</strong>Troglitazone/曲格列酮/Rezulin/瑞澤林，<strong>Pfizer</strong>
+                                </p>
+                            </li>
+                            <li>
+                                <p><strong>Alpha-glucosidase
+                                    inhibitors/甲型糖苷酶抑制劑：</strong><strong>Acarbose/阿卡波糖/</strong><strong>Glucobay/拜糖苹</strong>，<strong>Bayer
+                                    AG</strong></p>
+                            </li>
+                        </ul>
+                        <p>
+                            這次回顧，主要回顧了成功的糖尿病藥物，而那些從沒獲批或還沒獲批的項目，不在此次學習之列哈！所以這些數據也是有「倖存者偏差」的，真正的糖尿病領域的研發，失敗的項目會更多更慘烈哈，比如<strong>Novo
+                            Nordisk</strong>的<strong>Glucokinase
+                            Agonist(GKA)/葡萄糖激酶激動劑</strong>就沒有成功。這類信息太雜太散，等咱們以後學習各個公司年報的時候，再把這課補上吧。</p>
+                        <p>對<strong>糖尿病領域</strong>的總結就到這兒啦！下周回到閱讀諾華年報的主線任務去~</p>
+                        <p>朋友們，下周見！</p>
+                        <figure class="img-container"><span class="img-responsive aligncenter lazy-img"
+                                                            style="width: 640px;"><span class="sizer"
+                                                                                        style="padding-bottom:51.71875%;"><img
+                                src="//a.kknews.cc/blank-ad4b0f60.gif" data-src=
+                                "https://i2.kknews.cc/SIG=2hupst9/ctp-vzntr/EsCxBWW8RdTmSJ.jpg" width="640"
+                                height="331"/><span class="loading-container"><span class="loading"><span>.</span><span>.</span><span>.</span></span></span></span></span>
+                        </figure>
+                        <p><strong>顏色小密碼</strong></p>
+                        <p>紫色：非主題公司、<strong>非主題</strong>機構、疾病名稱</p>
+                        <p><strong>紅色：年份、重要事件、強調內容</strong></p>
+                        <p>橙色：藥品名稱、<strong>生物術語</strong></p>
+                        <p><strong class="highlight-text" toutiao-origin="span">醬色：職位名稱</strong></p>
+                        <p>當然，限於顏色選擇，有時候會有一些小的例外，比如<strong class="highlight-text"
+                                                           toutiao-origin="span">CIBA</strong>和<strong
+                                class="highlight-text" toutiao-origin="span">Sandoz</strong>。另外，這個系統也會繼續進化完善~</p>
+                        <p><strong>昂，親，您竟然翻到底了！</strong></p>
+                        <p>那拓推薦一套我覺得很棒的書吧，李曉鵬博士的「<strong>從黃河文明到'一帶一路'</strong>」——學中國歷史，這一套就夠了~</p>
+                    </div>
+                    <div id="shareft" class="sharebtn">
+                        <div class="facebook"><a href="#" target="_blank"><em
+                                class="icon-facebook"></em>點我分享到Facebook</a></div>
+                    </div>
+                    <div class="axslot lrct_bottom axsense">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle" style="display:block"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({params:{"google_ad_client":["ca","pub","2923"+"1528"+"6638"+"5027"].join("-"),"google_ad_slot":"9469224430","google_ad_layout":"in-article","google_ad_format":"fluid","google_ad_channel":"7076095746"}});
+                        </script>
+                    </div><!-- google_ad_section_end --></div>
+            </article>
+            <script type="application/ld+json">{
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "item": {
+                            "@id": "https://kknews.cc/",
+                            "name": "每日頭條"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "item": {
+                            "@id": "https://kknews.cc/health/",
+                            "name": "健康"
+                        }
+                    }
+                ]
+            }</script>
+            <h2>相關文章</h2>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/oy3jv6q.html"><img
+                            src="https://ti1.kknews.cc/SIG=2v97it/1ns500044143sp4r8764_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/oy3jv6q.html" rel="bookmark">不想打胰島素，有10種方案可以試</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20170406/" rel="bookmark">2017-04-06</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        還沒有準備好胰島素治療嗎？當您被診斷患有2型糖尿病時，您可能會認為，控制血糖水平的下一步就是胰島素。但這並不總是必要的第一選擇。根據情況，您可能有其他選擇，包括對您更合適的其他藥物或藥物組合。1.
+                        減肥策略如果您偏胖，血糖偏高，但不是很高，這可能是最好的初始方案。</p></div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/3eo2bog.html"><img
+                            src="https://ti1.kknews.cc/SIG=3k54pnr/66oq0002p3o28qs094so_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/3eo2bog.html" rel="bookmark">存在胰島素抵抗，有哪些可以改善的藥物？</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20180301/" rel="bookmark">2018-03-01</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        胰島素抵抗，是2型糖尿病形成的機制之一，目前認為1型糖尿病患者也存在胰島素抵抗。可改善胰島素抵抗的藥物雙胍類藥物噻唑烷二酮類藥物DPP-4抑制劑GLP-1類似物或GLP-1受體激動劑雙胍類藥物可以促進組織對葡萄糖的攝取，增加肌肉組織中糖的無氧酵解，減少葡萄糖在腸道的吸收，減少肝內</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/meojlpg.html"><img
+                            src="https://ti1.kknews.cc/SIG=33pmlsu/470700051snqr3snrnn2_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/meojlpg.html" rel="bookmark">糖尿病藥物分為哪幾類？</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20171204/" rel="bookmark">2017-12-04</a></p></header>
+                    <div class="mh-excerpt"><p>◆口服降糖藥：促胰島素分泌劑（磺脲類、格列奈類、DPP-4抑制劑）；非促胰島素分泌劑（雙胍類、噻唑烷二酮類、α-糖苷酶抑制劑）。</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/gqr683e.html"><img
+                            src="https://ti1.kknews.cc/SIG=4u0vbi/2843/3239754956_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/gqr683e.html" rel="bookmark">糖尿病友必知：3
+                        張圖搞定治療藥物！</a></h3>
+                        <p class="meta"><a href="/archive/20150409/" rel="bookmark">2015-04-09</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        治療糖尿病的藥物眾多，名字都很相近，極易弄混淆。要怎樣才能記住並且不死記硬背還能不忘記？我的心得是，一定要理解著記。如何叫理解著記？就是要明白這個藥的主要作用機制，說到機制你可別被嚇跑了，這裡的機制只是簡單的幫助理解藥物作用加深記憶。試想，來龍去脈都清楚了，想忘應該都挺難的吧！</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/pe96po2.html"><img
+                            src="https://ti1.kknews.cc/SIG=25kli4/4nr100040np9097o4sr2_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/pe96po2.html" rel="bookmark">治療2型糖尿病的藥物種類各不相同，如何更好的選擇？</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20171205/" rel="bookmark">2017-12-05</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        根據11月14日發表在網上的《糖尿病、肥胖和新陳代謝》雜誌上的一篇評論文章，在治療2型糖尿病(T2D)的藥物治療上有相當大的差異。英國吉爾福德薩里大學的Andrew
+                        McGovern，B.M.B.S.</p></div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/zmo5rra.html" rel="bookmark">醫生選擇降糖藥的5個原則</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20161128/" rel="bookmark">2016-11-28</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        即使是同樣的藥物效果和副作用也會因人而異，所以說沒有最好的降糖藥，只有最適合的藥物。今天我們就看看著名糖尿病專家向紅丁關於降糖藥選擇的5個基本原則。糖顧問再次提醒糖友們，本文僅作健康知識傳播，用藥請務必在主管醫生的指導下進行！</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/b2pyvo6.html"><img
+                            src="https://ti1.kknews.cc/SIG=2v97it/1ns500044143sp4r8764_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/b2pyvo6.html" rel="bookmark">糖尿病：胰島素治療前，可嘗試的10種治療方案</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20170406/" rel="bookmark">2017-04-06</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        還沒有準備好胰島素治療嗎？當您被診斷患有2型糖尿病時，您可能會認為，控制血糖水平的下一步就是胰島素。但這並不總是必要的第一選擇。根據情況，您可能有其他選擇，包括對您更合適的其他藥物或藥物組合。1.
+                        減肥策略如果您偏胖，血糖偏高，但不是很高，這可能是最好的初始方案。</p></div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/rok5xyn.html"><img
+                            src="https://ti1.kknews.cc/SIG=3h34ku/qsvp-vzntrunaqyre/8496s669-p812-40n5-95r1-6405o048p748_s.jpg"></a>
+                    </div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/rok5xyn.html" rel="bookmark">2型糖尿病診療中的那些事兒</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20190116/" rel="bookmark">2019-01-16</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        導讀糖尿病是一種慢性疾病，與長期併發症有關。治療目標在2型糖尿病患者中，通過強化血糖控制，包括腎病、神經病變和視網膜病變在內的微血管併發症被證明是減少的。</p></div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/3jbojry.html"><img
+                            src="https://ti1.kknews.cc/SIG=2s5ko2h/4840007q70o93802s1o_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/3jbojry.html" rel="bookmark">糖尿病用藥分類，看這個搞明白！</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20160415/" rel="bookmark">2016-04-15</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        加微信公眾號tnbtbzc(糖尿病同伴支持)，一起改變糖尿病！治療糖尿病的藥物眾多，名字都很相近，極易弄混淆。要怎樣才能記住並且不死記硬背還能不忘記？我的心得是，一定要理解著記。如何叫理解著記？</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/6jzezv.html"><img
+                            src="https://ti1.kknews.cc/SIG=2og6ou7/r520006r1q0386rs62o_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/6jzezv.html" rel="bookmark">降糖藥物如何合理選擇，胖人用雙胍，瘦人選磺脲</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20161007/" rel="bookmark">2016-10-07</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        得了糖尿病，需要控制血糖。如果飲食調整效果不能讓人滿意。那麼就要考慮注射胰島素或者服藥了。相對來說，服藥更為方便。也成為許多糖尿病患者的選擇。目前市場上的口服降糖藥主要有5大類，分別是：雙胍類、磺脲類、格列奈類、α—糖苷酶抑制劑、噻唑烷二酮類。</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/5xg69nl.html"><img
+                            src="https://ti1.kknews.cc/SIG=gjarfo/46q9000419s6qoo661so_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/5xg69nl.html" rel="bookmark">口服降糖藥真的萬無一失？</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20171114/" rel="bookmark">2017-11-14</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        臨床常用口服降糖藥包括磺脲類以及非磺脲類(格列奈類)胰島素促泌劑、雙胍類、α糖苷酶抑制劑、噻唑烷二酮類(TZD)和二肽基肽酶Ⅳ(DPP-4)抑制劑等。所有降糖藥物都可能發生副作用，並因藥物類別和具體藥品不同而異。</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/mp8krpp.html" rel="bookmark">新老降糖藥該如何選？</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20190130/" rel="bookmark">2019-01-30</a></p></header>
+                    <div class="mh-excerpt"><p>近日發表的兩項研究表明，相比新型降糖藥，傳統降糖藥可能會增加心血管事件風險，而新型降糖藥卻會增加膽管癌風險。</p></div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/5lpp9k.html"><img
+                            src="https://ti1.kknews.cc/SIG=2bnfr47/p5s0003nq059osq31r0_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/5lpp9k.html" rel="bookmark">名醫講糖 |
+                        最詳細的口服降血糖藥物介紹</a></h3>
+                        <p class="meta"><a href="/archive/20160822/" rel="bookmark">2016-08-22</a></p></header>
+                    <div class="mh-excerpt"><p>口服降血糖藥物的種類繁多，作用機制各異。</p></div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/a3k39gx.html" rel="bookmark">糖尿病合理用藥-2</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20190418/" rel="bookmark">2019-04-18</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        糖尿病是由於體內胰島素分泌不足而引起糖代謝紊亂的一種疾病。其發病率在我國有日益增多的趨勢，如果病情長期得不到很好控制，會發生多種併發症，如冠心病、動脈硬化、糖尿病腎病等，嚴重的還會危及生命。控制糖尿病主要從兩方面入手，一是生活管理，二是合理用藥。</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/62pe3x3.html"><img
+                            src="https://ti1.kknews.cc/SIG=3f71s68/438r0000os2opsspsq44_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/62pe3x3.html" rel="bookmark">收藏！8
+                        類降糖藥物作用特點</a></h3>
+                        <p class="meta"><a href="/archive/20171110/" rel="bookmark">2017-11-10</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        糖尿病患者在飲食與運動不能使血糖控制達標時應及時採用降糖藥治療。降糖藥種類繁多，各種藥物對於糖化血紅蛋白、空腹和餐後的血糖、體重等的影響常常記不清。</p></div>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard has-post-thumbnail">
+                <div class="loop-wrap clearfix">
+                    <div class="loop-thumb"><a href="/health/62883ov.html"><img
+                            src="https://ti2.kknews.cc/SIG=39uks8u/436o000319340pp85sp5_s.jpg"></a></div>
+                    <header class="loop-data"><h3 class="loop-title"><a href="/health/62883ov.html" rel="bookmark">一文讀懂降糖藥</a>
+                    </h3>
+                        <p class="meta"><a href="/archive/20171105/" rel="bookmark">2017-11-05</a></p></header>
+                    <div class="mh-excerpt"><p>
+                        治療糖尿病的藥物眾多，名字都很相近，極易混淆。要怎麼樣才能不死記硬背又能牢記不會忘呢？筆者的心得是，一定要理解記憶。何為理解記憶？就是要明白這個藥的主要作用機制。別說到機制你就被嚇跑了，這裡的機制只是簡單的幫助理解藥物作用加深記憶。試想，來龍去脈都清楚了，想忘應該都挺難的吧！</p>
+                    </div>
+                </div>
+            </article>
+            <script>
+                (PAGEVARS=window.PAGEVARS||[]).push(["story",{"title":"\u7cd6\u5c3f\u75c5\u5c08\u984c30 \u7e3d\u7d50(\u4e0b) \u6642\u9593\u7dda\u548c\u516c\u53f8\u7dda\u56de\u9867","category":"health","source":1637596040372238,"url":"https:\/\/kknews.cc\/health\/e5qollr.html","shorten_url":"https:\/\/71a.xyz\/XvBbw7"}])
+            </script>
+        </div>
+        <aside class="mh-sidebar">
+            <div class="sticky">
+                <div class="sb-widget">
+                    <form role="search" method="get" id="searchform" action="/search/">
+                        <fieldset><input type="text" placeholder="找不到想看的？搜尋看看！" name="q" id="s"> <input type="submit"
+                                                                                                        id="searchsubmit"
+                                                                                                        value="">
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="sb-widget"><!-- No ads for LRCT_Sidebar --></div>
+                <div class="sb-widget">
+                    <div class="axslot dlrec axsense">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle" style="display:block"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({params:{"google_ad_client":["ca","pub","2923"+"1528"+"6638"+"5027"].join("-"),"google_ad_slot":"6641659742","google_ad_channel":"7076095746","google_ad_format":"autorelaxed"}});
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <div class="copyright-wrap"><p class="copyright">Copyright &copy;2020&nbsp;/&nbsp;<a href="/terms.html"
+                                                                                         rel="nofollow">服務條款</a>&nbsp;/&nbsp;<a
+            href="mailto:dmca@kknews.cc" rel="nofollow">DMCA</a>&nbsp;/&nbsp;<a href="mailto:support@kknews.cc"
+                                                                                rel="nofollow">聯絡我們</a></p></div>
+</div>
+<div id="fb-root"></div>
+<div id="sharebar" class="sharebtn">
+    <ul>
+        <li class="facebook"><a href="#"></a></li>
+        <li class="whatsapp"><a href="#"></a></li>
+        <li class="line"><a href="#"></a></li>
+        <li class="twitter"><a href="#"></a></li>
+        <li class="plurk"><a href=""></a></li>
+    </ul>
+</div>
+<script>
+    (PAGEVARS=window.PAGEVARS||[]).push(["facebook",{app_id:776605462513893}],["debug",false],["device","desktop"])
+</script>
+<script>
+    !function(e,a,t,n,c,g,o){e.GoogleAnalyticsObject=c,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,g=a.createElement(t),o=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",o.parentNode.insertBefore(g,o)}(window,document,"script",0,"ga"),ga("create",["UA","80062470","1"].join("-"),{sampleRate:2,siteSpeedSampleRate:20})
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//a.kknews.cc/all-9e889e1a.js" async></script>
+<script>
+    window.captchaReady=function(){grecaptcha.execute("6LfRG68UAAAAAMToh2v5n7aqfEyrhVD584F8JL20",{action:"invisable"}).then(function(i){$.post("/challenge.html",{ctx:"ZWUwZDBhNTVhODI3OTAyYjFjZDU0N2Y5ODA5N2NiYjgxYjIyM2JmM1sxNjA5NDA5NDQ1LjQyODU1LCIxNzIuMTIxLjE4OS4xMTAiLCJcL2hlYWx0aFwvZTVxb2xsci5odG1sIl0-",ans:i})})}
+</script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfRG68UAAAAAMToh2v5n7aqfEyrhVD584F8JL20&onload=captchaReady&hl=zh-tw"
+        async defer="defer"></script><!--GEMINI-->
+<script type="text/javascript">
+    window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"5690e7e2ae","applicationID":"20846741","transactionName":"b1JRYhBYV0RRABVaC1YYcEMRTVZaHxMOQBAXXl1SB0E=","queueTime":0,"applicationTime":42,"atts":"QxVSFFhCREo=","errorBeacon":"bam-cell.nr-data.net","agent":""}
+</script>
+</body>
+</html>
